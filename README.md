@@ -1,11 +1,26 @@
-# LoggerHealthCheck
+<p align="center">
+  <a href="https://github.com/AnderssonPeter/LoggerHealthCheck">
+    <img src="icon.svg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">LoggerHealthCheck</h3>
+
+  <p align="center">
+    Serve smaller files with zero-ish server overhead
+    <br />
+    <br />
+    ·
+    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Request Feature</a>
+  </p>
+</p>
+
+
 [![NuGet version](https://badge.fury.io/nu/LoggerHealthCheck.svg)](https://badge.fury.io/nu/LoggerHealthCheck)
 [![run unit tests](https://github.com/AnderssonPeter/LoggerHealthCheck/workflows/run%20unit%20tests/badge.svg)](https://github.com/AnderssonPeter/LoggerHealthCheck/actions?query=workflow%3A%22run+unit+tests%22)
 [![Coverage Status](https://coveralls.io/repos/github/AnderssonPeter/LoggerHealthCheck/badge.svg)](https://coveralls.io/github/AnderssonPeter/LoggerHealthCheck)
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/AnderssonPeter/LoggerHealthCheck/master/LICENSE)
-
-[Report Bug](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)  
-[Request Feature](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)
 
 
 ## Table of Contents
