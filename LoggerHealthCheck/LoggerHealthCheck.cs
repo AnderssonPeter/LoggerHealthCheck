@@ -19,28 +19,6 @@ namespace LoggerHealthCheck
             this.options = options ?? throw new ArgumentNullException(nameof(options));
         }
 
-        public static string ToHumanReadableString(TimeSpan t)
-        {
-            if (t.TotalSeconds <= 1)
-            {
-                return $@"{t:s\.ff} seconds";
-            }
-            if (t.TotalMinutes <= 1)
-            {
-                return $@"{t:%s} seconds";
-            }
-            if (t.TotalHours <= 1)
-            {
-                return $@"{t:%m} minutes";
-            }
-            if (t.TotalDays <= 1)
-            {
-                return $@"{t:%h} hours";
-            }
-
-            return $@"{t:%d} days";
-        }
-
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
             var entries = healthCheckLoggerProvider.GetLogEntries().Where(options.Filter).ToArray();
@@ -61,7 +39,7 @@ namespace LoggerHealthCheck
                 }
                 var values = new { latestOccurence = group.Max(), numberOfOccurrences = group.Count() };
                 builder.AppendLine($"{key.LogLevel}: {key.Source} - {key.Message}");
-                builder.AppendLine($"Latest occurrence: {values.latestOccurence}, number of occurrences: {values.numberOfOccurrences} in the last {ToHumanReadableString(healthCheckLoggerProvider.Configuration.FlushTime)}");
+                builder.AppendLine($"Latest occurrence: {values.latestOccurence}, number of occurrences: {values.numberOfOccurrences} in the last {healthCheckLoggerProvider.Configuration.FlushTime.ToHumanReadableString()}");
                 if (key.ExceptionType != null)
                 {
                     builder.AppendLine($"{key.ExceptionType}: {key.ExceptionMessage}");
