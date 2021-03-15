@@ -9,15 +9,14 @@
 		<PackageProjectUrl>https://github.com/AnderssonPeter/LoggerHealthCheck</PackageProjectUrl>
 		<PackageTags>aspnetcore;healthchecks;</PackageTags>
 		<Version>1.0.0</Version>
-		<PackageReleaseNotes>
-1.0.0
-Initial version
-		</PackageReleaseNotes>
+		<PackageReleaseNotes>1.0.0
+Initial version		</PackageReleaseNotes>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<RepositoryUrl>https://github.com/AnderssonPeter/LoggerHealthCheck</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
