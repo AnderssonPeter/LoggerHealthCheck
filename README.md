@@ -1,20 +1,12 @@
-<p align="center">
-
-  <h3 align="center">LoggerHealthCheck</h3>
-
-  <p align="center">
-    ·
-    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Request Feature</a>
-  </p>
-</p>
-<br />
-
+# LoggerHealthCheck
 [![NuGet version](https://badge.fury.io/nu/LoggerHealthCheck.svg)](https://badge.fury.io/nu/LoggerHealthCheck)
 [![run unit tests](https://github.com/AnderssonPeter/LoggerHealthCheck/workflows/run%20unit%20tests/badge.svg)](https://github.com/AnderssonPeter/LoggerHealthCheck/actions?query=workflow%3A%22run+unit+tests%22)
 [![Coverage Status](https://coveralls.io/repos/github/AnderssonPeter/LoggerHealthCheck/badge.svg)](https://coveralls.io/github/AnderssonPeter/LoggerHealthCheck)
 [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/AnderssonPeter/LoggerHealthCheck/master/LICENSE)
+
+[Report Bug](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)  
+[Request Feature](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)
+
 
 ## Table of Contents
 * [About the Project](#about-the-project)
@@ -31,7 +23,7 @@ In `Startup.ConfigureServices` add
 services.AddHealthChecks()
         .AddLoggerHealthCheck();
 ```
-This will add a healtcheck named `Logs` that will have the status `Degraded` if any Warnings have been logged in the last 5 minutes, if any Errors or Critical have been logged it will have the status `Unhealthy`.
+This will add a healtcheck named `Logs` that will have the status `Degraded` if any `Warning`s have been logged in the last 5 minutes, if any `Error`s or `Critical`s have been logged it will have the status `Unhealthy`.
 
 ### With Serilog
 In `Program.cs` add
@@ -51,7 +43,7 @@ In `Program.cs` add
 ### Customization
 
 #### Healtcheck for specific class
-If you want to add a specific HealthCheck for one class you can use the `.AddLoggerHealthCheckForType<T>()` method in `Startup.ConfigureServices` this will scan for log entries that either have source set as the `T`, or where a Exception's stacktrace contains the type.
+If you want to add a specific HealthCheck for one class you can use the `.AddLoggerHealthCheckForType<T>()` method in `Startup.ConfigureServices` this will scan for log entries that either have source set as `T`, or where a Exception's stacktrace contains the type.
 
 #### Custom filtration
 Filtration can be done at two diffrent levels
@@ -69,4 +61,4 @@ See [HealthCheckLoggerProviderConfiguration](LoggerHealthCheck/HealthCheckLogger
 See [LoggerHealthCheckOptions](LoggerHealthCheck/LoggerHealthCheckOptions.cs)
 
 ## Example
-A example can be found in the [Example](https://github.com/AnderssonPeter/LoggerHealthCheck/tree/master/Example) directory.
+A example can be found in the [LoggerHealthCheckExample](LoggerHealthCheckExample) and [LoggerHealthCheckExampleWithSerilog](LoggerHealthCheckExampleWithSerilog) directory.
