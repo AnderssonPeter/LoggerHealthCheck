@@ -3,9 +3,6 @@
   <h3 align="center">LoggerHealthCheck</h3>
 
   <p align="center">
-    Serve smaller files with zero-ish server overhead
-    <br />
-    <br />
     ·
     <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Report Bug</a>
     ·
