@@ -1,7 +1,4 @@
 <p align="center">
-  <a href="https://github.com/AnderssonPeter/LoggerHealthCheck">
-    <img src="icon.svg" alt="Logo" width="80" height="80">
-  </a>
 
   <h3 align="center">LoggerHealthCheck</h3>
 
@@ -9,9 +6,9 @@
     Serve smaller files with zero-ish server overhead
     <br />
     <br />
-    ·
+    Â·
     <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Report Bug</a>
-    ·
+    Â·
     <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Request Feature</a>
   </p>
 </p>
