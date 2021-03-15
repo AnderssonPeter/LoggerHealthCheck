@@ -61,4 +61,4 @@ See [HealthCheckLoggerProviderConfiguration](LoggerHealthCheck/HealthCheckLogger
 See [LoggerHealthCheckOptions](LoggerHealthCheck/LoggerHealthCheckOptions.cs)
 
 ## Example
-A example can be found in the [Example](https://github.com/AnderssonPeter/LoggerHealthCheck/tree/master/Example) directory.
+A example can be found in the [LoggerHealthCheckExample](LoggerHealthCheckExample) and [LoggerHealthCheckExampleWithSerilog](LoggerHealthCheckExampleWithSerilog) directory.
