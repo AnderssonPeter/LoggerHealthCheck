@@ -1,15 +1,7 @@
-<p align="center">
+# LoggerHealthCheck
 
-  <h3 align="center">LoggerHealthCheck</h3>
-
-  <p align="center">
-    ·
-    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/AnderssonPeter/LoggerHealthCheck/issues">Request Feature</a>
-  </p>
-</p>
-<br />
+[Report Bug](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)  
+[Request Feature](https://github.com/AnderssonPeter/LoggerHealthCheck/issues)
 
 [![NuGet version](https://badge.fury.io/nu/LoggerHealthCheck.svg)](https://badge.fury.io/nu/LoggerHealthCheck)
 [![run unit tests](https://github.com/AnderssonPeter/LoggerHealthCheck/workflows/run%20unit%20tests/badge.svg)](https://github.com/AnderssonPeter/LoggerHealthCheck/actions?query=workflow%3A%22run+unit+tests%22)
