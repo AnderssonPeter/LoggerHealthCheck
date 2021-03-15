@@ -31,7 +31,7 @@ In `Startup.ConfigureServices` add
 services.AddHealthChecks()
         .AddLoggerHealthCheck();
 ```
-This will add a healtcheck named `Logs` that will have the status `Degraded` if any Warnings have been logged in the last 5 minutes, if any Errors or Critical have been logged it will have the status `Unhealthy`.
+This will add a healtcheck named `Logs` that will have the status `Degraded` if any `Warning`s have been logged in the last 5 minutes, if any `Error`s or `Critical`s have been logged it will have the status `Unhealthy`.
 
 ### With Serilog
 In `Program.cs` add
@@ -51,7 +51,7 @@ In `Program.cs` add
 ### Customization
 
 #### Healtcheck for specific class
-If you want to add a specific HealthCheck for one class you can use the `.AddLoggerHealthCheckForType<T>()` method in `Startup.ConfigureServices` this will scan for log entries that either have source set as the `T`, or where a Exception's stacktrace contains the type.
+If you want to add a specific HealthCheck for one class you can use the `.AddLoggerHealthCheckForType<T>()` method in `Startup.ConfigureServices` this will scan for log entries that either have source set as `T`, or where a Exception's stacktrace contains the type.
 
 #### Custom filtration
 Filtration can be done at two diffrent levels
