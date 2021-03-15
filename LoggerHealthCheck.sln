@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerHealthCheck", "LoggerHealthCheck\LoggerHealthCheck.csproj", "{67D1000A-FB53-4175-BFBC-8A8112CDA49B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{94591C80-24A5-46C2-A4AB-41148F57E3BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerHealthCheckExample", "LoggerHealthCheckExample\LoggerHealthCheckExample.csproj", "{9E3DEDA6-1275-4C09-BFE8-98237978EF0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerHealthCheckExampleWithSerilog", "LoggerHealthCheckExampleWithSerilog\LoggerHealthCheckExampleWithSerilog.csproj", "{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerHealthCheck.Tests", "LoggerHealthCheck.Tests\LoggerHealthCheck.Tests.csproj", "{86642BC2-A3E1-4CBC-B693-36B18A23E89E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AB473FC8-30D3-4CBC-9573-574324F13088}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A5FE2B66-616A-451F-A959-6A48BDD763D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{50A4F9A9-A7E7-4EA7-903E-105834505C78}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\test.yml = .github\workflows\test.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67D1000A-FB53-4175-BFBC-8A8112CDA49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D1000A-FB53-4175-BFBC-8A8112CDA49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D1000A-FB53-4175-BFBC-8A8112CDA49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D1000A-FB53-4175-BFBC-8A8112CDA49B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3DEDA6-1275-4C09-BFE8-98237978EF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3DEDA6-1275-4C09-BFE8-98237978EF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3DEDA6-1275-4C09-BFE8-98237978EF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3DEDA6-1275-4C09-BFE8-98237978EF0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86642BC2-A3E1-4CBC-B693-36B18A23E89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86642BC2-A3E1-4CBC-B693-36B18A23E89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86642BC2-A3E1-4CBC-B693-36B18A23E89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86642BC2-A3E1-4CBC-B693-36B18A23E89E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E3DEDA6-1275-4C09-BFE8-98237978EF0E} = {94591C80-24A5-46C2-A4AB-41148F57E3BD}
+		{FB94D55F-D3EE-4CDF-B4E3-DC7C14ED9E57} = {94591C80-24A5-46C2-A4AB-41148F57E3BD}
+		{A5FE2B66-616A-451F-A959-6A48BDD763D5} = {AB473FC8-30D3-4CBC-9573-574324F13088}
+		{50A4F9A9-A7E7-4EA7-903E-105834505C78} = {A5FE2B66-616A-451F-A959-6A48BDD763D5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B068E261-04D2-481A-A8C6-705FD3181BF4}
+	EndGlobalSection
+EndGlobal
