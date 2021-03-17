@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>net5.0</TargetFrameworks>
@@ -7,9 +7,11 @@
 		<Authors>Peter Andersson</Authors>
 		<Description>This will ensure that you application will serve the smallest files without any server overhead, files need to be compressed and converted to other image formats before deploying.</Description>
 		<PackageProjectUrl>https://github.com/AnderssonPeter/LoggerHealthCheck</PackageProjectUrl>
-		<PackageTags>aspnetcore;healthchecks;</PackageTags>
+		<PackageTags>aspnetcore;healthchecks;diagnostics;healthcheck;</PackageTags>
 		<Version>1.0.0</Version>
-		<PackageReleaseNotes>1.0.0
+		<PackageReleaseNotes>1.0.1
+FlushTime can now be changed.
+1.0.0
 Initial version		</PackageReleaseNotes>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>

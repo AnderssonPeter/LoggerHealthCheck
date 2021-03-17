@@ -16,7 +16,7 @@ namespace LoggerHealthCheck
         /// <summary>
         /// How long to keep LogEntries the default is 5 minutes.
         /// </summary>
-        public TimeSpan FlushTime { get; } = TimeSpan.FromMinutes(5);
+        public TimeSpan FlushTime { get; set; } = TimeSpan.FromMinutes(5);
         /// <summary>
         /// What <see cref="LogLevel"/> is required to affect HealthChecks.
         /// </summary>
