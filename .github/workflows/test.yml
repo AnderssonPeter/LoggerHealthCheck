@@ -6,8 +6,6 @@ jobs:
   build:
 
     runs-on: windows-latest
-    env:
-      config: 'Release'
 
     steps:
     - uses: actions/checkout@v2
@@ -18,9 +16,9 @@ jobs:
     - name: Install dependencies
       run: dotnet restore --verbosity normal
     - name: Build
-      run: dotnet build --configuration $config --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --configuration $config --no-restore --no-build --verbosity normal --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=lcov
+      run: dotnet test --configuration Release --no-restore --no-build --verbosity normal --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=lcov
     - name: Find lcov file path
       id: find-lcov-file-path
       shell: pwsh
