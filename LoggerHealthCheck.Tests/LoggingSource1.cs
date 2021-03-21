@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace LoggerHealthCheck.Tests
 {
@@ -12,6 +13,7 @@ namespace LoggerHealthCheck.Tests
             this.logger = logger;
         }
 
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public void ThrowException()
         {
             throw new Exception("Kaboom");
