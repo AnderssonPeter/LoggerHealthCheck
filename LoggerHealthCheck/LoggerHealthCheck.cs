@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Options;
 using System;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,11 +10,13 @@ namespace LoggerHealthCheck
     public class LoggerHealthCheck : IHealthCheck
     {
         private readonly HealthCheckLoggerProvider healthCheckLoggerProvider;
+        private readonly IHealthMessageFormatter healthMessageFormatter;
         private readonly LoggerHealthCheckOptions options;
 
-        public LoggerHealthCheck(HealthCheckLoggerProvider healthCheckLoggerProvider, LoggerHealthCheckOptions options)
+        public LoggerHealthCheck(HealthCheckLoggerProvider healthCheckLoggerProvider, IHealthMessageFormatter healthMessageFormatter, LoggerHealthCheckOptions options)
         {
             this.healthCheckLoggerProvider = healthCheckLoggerProvider;
+            this.healthMessageFormatter = healthMessageFormatter;
             this.options = options ?? throw new ArgumentNullException(nameof(options));
         }
 
@@ -27,27 +28,9 @@ namespace LoggerHealthCheck
                 return Task.FromResult(HealthCheckResult.Healthy());
             }
             //Create message!
-            var status = HealthStatus.Degraded;
-            StringBuilder builder = new StringBuilder();
-            var grouped = entries.GroupBy(e => new { e.LogLevel, e.Source, e.Message, ExceptionType = e.Exception?.GetType(), ExceptionMessage = e.Exception?.ToString() }, e => e.Timestamp);
-            foreach(var group in grouped)
-            {                
-                var key = group.Key;
-                if (group.Key.LogLevel >= options.UnhealthyLogLevel)
-                {
-                    status = HealthStatus.Unhealthy;
-                }
-                var values = new { latestOccurence = group.Max(), numberOfOccurrences = group.Count() };
-                builder.AppendLine($"{key.LogLevel}: {key.Source} - {key.Message}");
-                builder.AppendLine($"Latest occurrence: {values.latestOccurence}, number of occurrences: {values.numberOfOccurrences} in the last {healthCheckLoggerProvider.Configuration.FlushTime.ToHumanReadableString()}");
-                if (key.ExceptionType != null)
-                {
-                    builder.AppendLine($"{key.ExceptionType}: {key.ExceptionMessage}");
-                }
-                builder.AppendLine();
-            }
+            var message = healthMessageFormatter.GenerateMessage(entries, options.UnhealthyLogLevel, healthCheckLoggerProvider.Configuration.FlushTime);
 
-            return Task.FromResult(new HealthCheckResult(status, builder.ToString()));
+            return Task.FromResult(new HealthCheckResult(message.Status, message.Content));
         }
     }
 }

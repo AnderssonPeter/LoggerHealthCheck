@@ -19,7 +19,7 @@ namespace LoggerHealthCheck.Tests
         [Theory]
         public void DefaultGlobalFilter(string name, bool hasException, bool expectedResult)
         {
-            Filters.DefaultGlobalFilter(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", new EventId(), hasException ? new Exception() : null)).Should().Be(expectedResult);
+            Filters.DefaultGlobalFilter(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", "", new EventId(), hasException ? new Exception() : null)).Should().Be(expectedResult);
         }
 
 
@@ -28,7 +28,7 @@ namespace LoggerHealthCheck.Tests
         [Theory]
         public void DefaultHealthCheck(string name, bool hasException, bool expectedResult)
         {
-            Filters.DefaultHealthCheck(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", new EventId(), hasException ? new Exception() : null)).Should().Be(expectedResult);
+            Filters.DefaultHealthCheck(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", "", new EventId(), hasException ? new Exception() : null)).Should().Be(expectedResult);
         }
 
         [InlineData("LoggerHealthCheck.Tests.LoggingSource1", null, true)]
@@ -40,7 +40,7 @@ namespace LoggerHealthCheck.Tests
         {
             if (string.IsNullOrEmpty(exceptionMessage))
             {
-                Filters.GetFilterForType<LoggingSource1>()(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", new EventId(), null)).Should().Be(expectedResult);
+                Filters.GetFilterForType<LoggingSource1>()(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", "", new EventId(), null)).Should().Be(expectedResult);
             }
             else
             {
@@ -51,7 +51,7 @@ namespace LoggerHealthCheck.Tests
                 }
                 catch (Exception ex)
                 {
-                    Filters.GetFilterForType<LoggingSource1>()(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", new EventId(), ex)).Should().Be(expectedResult);
+                    Filters.GetFilterForType<LoggingSource1>()(new LogEntry(DateTime.Now, name, LogLevel.Trace, "", "", new EventId(), ex)).Should().Be(expectedResult);
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace LoggerHealthCheck.Tests
         [Fact]
         public void CombineFilters()
         {
-            var logEntry = new LogEntry(DateTime.Now, "", LogLevel.Trace, "", new EventId(), null);
+            var logEntry = new LogEntry(DateTime.Now, "", LogLevel.Trace, "", "", new EventId(), null);
             Filters.Combine((_) => true, (_) => true)(logEntry).Should().BeTrue();
             Filters.Combine((_) => false, (_) => true)(logEntry).Should().BeFalse();
             Filters.Combine((_) => false, (_) => false)(logEntry).Should().BeFalse();

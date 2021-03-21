@@ -1,18 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net5.0</TargetFrameworks>
+		<TargetFrameworks>net5.0;netstandard2.0;</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
 		<Nullable>enable</Nullable>
 		<Authors>Peter Andersson</Authors>
 		<Description>This will ensure that you application will serve the smallest files without any server overhead, files need to be compressed and converted to other image formats before deploying.</Description>
 		<PackageProjectUrl>https://github.com/AnderssonPeter/LoggerHealthCheck</PackageProjectUrl>
 		<PackageTags>aspnetcore;healthchecks;diagnostics;healthcheck;</PackageTags>
-		<Version>1.0.0</Version>
-		<PackageReleaseNotes>1.0.1
-FlushTime can now be changed.
-1.0.0
-Initial version		</PackageReleaseNotes>
+		<Version>1.1.0</Version>
+		<PackageReleaseNotes>
+			1.1.0
+			Group messages by MessageTemplate
+			Added support for .netstandard2.0
+			Added IHealthMessageFormatter to allow custom messages
+			Added icon
+			1.0.1
+			FlushTime can now be changed
+			1.0.0
+			Initial version
+		</PackageReleaseNotes>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<RepositoryUrl>https://github.com/AnderssonPeter/LoggerHealthCheck</RepositoryUrl>
@@ -22,9 +29,18 @@ Initial version		</PackageReleaseNotes>
 		<PackageIcon>Icon.png</PackageIcon>
 	</PropertyGroup>
 
-	<ItemGroup>
+	<PropertyGroup Condition="$(TargetFramework.StartsWith('net5.'))">
+		<DefineConstants>$(DefineConstants);NET5</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup Condition="$(DefineConstants.Contains(NET5))">
 		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="5.0.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="!$(DefineConstants.Contains(NET5))">
+		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.13" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.13" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -20,7 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return builder.Add(new HealthCheckRegistration(
                 name ?? LOGS_NAME,
-                sp => new LoggerHealthCheck.LoggerHealthCheck(sp.GetRequiredService<HealthCheckLoggerProvider>(), options),
+                sp => new LoggerHealthCheck.LoggerHealthCheck(sp.GetRequiredService<HealthCheckLoggerProvider>(), sp.GetRequiredService<IHealthMessageFormatter>(), options),
                 failureStatus,
                 tags));
         }
@@ -44,7 +44,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }
             return builder.Add(new HealthCheckRegistration(
                 name ?? typeof(T).Name,
-                sp => new LoggerHealthCheck.LoggerHealthCheck(sp.GetRequiredService<HealthCheckLoggerProvider>(), options),
+                sp => new LoggerHealthCheck.LoggerHealthCheck(sp.GetRequiredService<HealthCheckLoggerProvider>(), sp.GetRequiredService<IHealthMessageFormatter>(), options),
                 failureStatus,
                 tags));
         }

@@ -20,7 +20,7 @@ namespace LoggerHealthCheck.Tests
             });
             for(var i = 0; i < 20; i++)
             {
-                healthCheckLoggerProvider.AddLogEntry(new LogEntry(DateTime.Now, "random", LogLevel.Critical, "random", new EventId(), null));
+                healthCheckLoggerProvider.AddLogEntry(new LogEntry(DateTime.Now, "random", LogLevel.Critical, "random", "random", new EventId(), null));
             }
             healthCheckLoggerProvider.GetLogEntries().Length.Should().Be(10);
         }
@@ -33,7 +33,7 @@ namespace LoggerHealthCheck.Tests
             });
             for (var i = 0; i < 20; i++)
             {
-                healthCheckLoggerProvider.AddLogEntry(new LogEntry(DateTime.Now, "random", LogLevel.Critical, "random", new EventId(), null));
+                healthCheckLoggerProvider.AddLogEntry(new LogEntry(DateTime.Now, "random", LogLevel.Critical, "random", "random", new EventId(), null));
             }
             await Task.Delay(50);
             healthCheckLoggerProvider.GetLogEntries().Length.Should().Be(0);
