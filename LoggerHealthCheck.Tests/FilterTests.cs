@@ -57,6 +57,34 @@ namespace LoggerHealthCheck.Tests
         }
 
         [Fact]
+        public void GetExceptionFilterForMethod()
+        {
+            var loggingSource1 = new LoggingSource1(null);
+            try
+            {
+                loggingSource1.ThrowException();
+            }
+            catch (Exception ex)
+            {
+                Filters.GetExceptionFilterForMethod<LoggingSource1>(nameof(LoggingSource1.ThrowException))(new LogEntry(DateTime.Now, "", LogLevel.Trace, "", "", new EventId(), ex)).Should().BeTrue();
+            }
+        }
+
+        [Fact]
+        public void NegativeGetExceptionFilterForMethod()
+        {
+            var loggingSource1 = new LoggingSource1(null);
+            try
+            {
+                loggingSource1.ThrowException();
+            }
+            catch (Exception ex)
+            {
+                Filters.GetExceptionFilterForMethod<LoggingSource1>(nameof(LoggingSource1.LogException))(new LogEntry(DateTime.Now, "", LogLevel.Trace, "", "", new EventId(), ex)).Should().BeFalse();
+            }
+        }
+
+        [Fact]
         public void CombineFilters()
         {
             var logEntry = new LogEntry(DateTime.Now, "", LogLevel.Trace, "", "", new EventId(), null);

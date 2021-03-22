@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace LoggerHealthCheck
 {
@@ -15,6 +18,18 @@ namespace LoggerHealthCheck
             var fullName = typeof(T).FullName;
             var shortName = typeof(T).Name;
             return (le) => le.Source == fullName || (le.Exception?.StackTrace?.Contains(shortName) ?? false);
+        }
+
+        /// <summary>
+        /// Creates a filter that only allows where a exception with the classname and method in the stacktrace
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static Func<LogEntry, bool> GetExceptionFilterForMethod<T>(string methodName)
+        {
+            var shortName = typeof(T).Name;
+            var name = $"{shortName}.{methodName}(";
+            return (le) => le.Exception?.StackTrace?.Contains(name) ?? false;
         }
 
         /// <summary>

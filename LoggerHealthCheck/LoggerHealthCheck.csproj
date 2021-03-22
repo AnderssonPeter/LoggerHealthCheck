@@ -14,6 +14,7 @@
 			Group messages by MessageTemplate
 			Added support for .netstandard2.0
 			Added IHealthMessageFormatter to allow custom messages
+			Added AddExceptionLoggerHealthCheckForMethod
 			Added icon
 			1.0.1
 			FlushTime can now be changed
